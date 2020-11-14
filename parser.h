@@ -40,13 +40,13 @@ class Parser: public Scanner{
         Node *assign();
         Node *RO();
 
-        void nextScan();
-        Node *newNode(string prodoName);
-        void parserError();
+        void nextScan();                    // Function gets next token in file
+        Node *newNode(string prodoName);    // Function creates new nodes
+        void parserError();                 // Function prints error messages
     
     public:
-        Parser(string fileName);
-        Node *parse();
+        Parser(string fileName);        // Function basically preparses
+        Node *parse();                  // Function does the real parsing
 
 };
 

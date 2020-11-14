@@ -7,7 +7,7 @@ AUX = node.h
 MASTER_OBJ = $(MASTER_SRC:.cpp=.o)
 OBJ = $(SRC:.h=.o)
 
-MASTER = scanner
+MASTER = frontEnd
 
 OUTPUT = $(MASTER)
 all: $(OUTPUT)

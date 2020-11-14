@@ -104,14 +104,17 @@ Node *Parser::program(){
                 
                 return node;   // Return node
             }else{
+                // If no stop token send error
                 predictTK.assign("stopTK");
                 parserError();
             }
         }else{
+            // If no main token, send error
             predictTK.assign("mainTK");
             parserError();
         }
     }else{
+        // If no start token, send error
         predictTK.assign("startTK");
         parserError();
     }
@@ -119,6 +122,7 @@ Node *Parser::program(){
     exit(EXIT_FAILURE);
 }
 
+// This the vars BNF function I really dont want to have to comment this out as its redundent, its the same shit as above basically
 Node *Parser::vars(){
     Node *node = newNode("<vars>");
     cout << "<vars>" << endl;
@@ -128,7 +132,7 @@ Node *Parser::vars(){
 
         if(tk.id == idTK){
             nextScan();
-            node->tokens.push_back(tk);
+            node->tokens.push_back(tk);     // Push this token into our thing
             nextScan();
 
             if((tk.id == opTK) && (opMap[tk.val] == "colonTK")){
@@ -160,6 +164,7 @@ Node *Parser::vars(){
     exit(EXIT_FAILURE);
 }
 
+// Block BNF Function
 Node *Parser::block(){
     Node *node = newNode("<block>");
     cout << "<block>" << endl;
@@ -185,6 +190,7 @@ Node *Parser::block(){
     exit(EXIT_FAILURE);
 }
 
+// expr BNF function
 Node *Parser::expr(){
     Node *node = newNode("<expr>");
     cout << "<expr>" << endl;
@@ -208,6 +214,7 @@ Node *Parser::expr(){
     return node;
 }
 
+// N BNF function
 Node *Parser::N(){
     Node *node = newNode("<N>");
     cout << "<N>" << endl;
@@ -231,6 +238,7 @@ Node *Parser::N(){
     return node;
 }
 
+// A BNF function
 Node *Parser::A(){
     Node *node = newNode("<A>");
     cout << "<A>" << endl;
@@ -247,6 +255,7 @@ Node *Parser::A(){
     return node;
 }
 
+// R BNF function
 Node *Parser::R(){
     Node *node = newNode("<R>");
     cout << "<R>" << endl;
@@ -277,6 +286,7 @@ Node *Parser::R(){
     exit(EXIT_FAILURE);
 }
 
+// stats BNF Function
 Node *Parser::stats(){
     Node *node = newNode("<stats>");
     cout << "<stats>" << endl;
@@ -287,6 +297,7 @@ Node *Parser::stats(){
     return node;
 }
 
+// mStat BNF function
 Node *Parser::mStat(){
     Node *node = newNode("<mStat>");
     cout << "<mStats>" << endl;
@@ -305,6 +316,7 @@ Node *Parser::mStat(){
 
 }
 
+// stat BNF function
 Node *Parser::stat(){
     Node *node = newNode("<stat>");
     cout << "<stat>" << endl;
@@ -377,6 +389,7 @@ Node *Parser::stat(){
     exit(EXIT_FAILURE);
 }
 
+// in BNF function
 Node *Parser::in(){
     Node *node = newNode("<in>");
     cout << "<in>" << endl;
@@ -416,6 +429,7 @@ Node *Parser::in(){
     exit(EXIT_FAILURE);
 }
 
+// out BNF function
 Node *Parser::out(){
     Node *node = newNode("<out>");
     cout << "<out>" << endl;
@@ -445,6 +459,7 @@ Node *Parser::out(){
     exit(EXIT_FAILURE);
 }
 
+// if BNF function
 Node *Parser::iff(){
     Node *node = newNode("<if>");
     cout << "<if>" << endl;
@@ -488,6 +503,7 @@ Node *Parser::iff(){
     exit(EXIT_FAILURE);
 }
 
+// loop BNF function
 Node *Parser::loop(){
     Node *node = newNode("<loop>");
     cout << "<loop>" << endl;
@@ -523,6 +539,7 @@ Node *Parser::loop(){
     exit(EXIT_FAILURE);
 }
 
+// assign BNF function
 Node *Parser::assign(){
     Node *node = newNode("<assign>");
     cout << "<assign>" << endl;
@@ -546,6 +563,7 @@ Node *Parser::assign(){
     exit(EXIT_FAILURE);
 }
 
+// RO BNF function
 Node *Parser::RO(){
     Node *node = newNode("<RO>");
     cout << "<R0>" << endl;

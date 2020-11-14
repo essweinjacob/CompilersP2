@@ -79,18 +79,21 @@ void Scanner::isComMode(){
     }
 }
 
+// This function gets the current position of the scanner
 string Scanner::getScanPos(){
     ostringstream temp;
     temp << "(" << lineNum << ":" << currentScannerPtr << ")";
     return temp.str();
 }
 
+// This function invokes the EOF value and gives it to token
 void Scanner::invokeEOF(Token &tk){
     tk.lineNum = (lineNum > 1) ? lineNum - 1 : lineNum;
     tk.id = EOFTK;
     tk.val = "EOF";
 }
 
+// This function pre scans the file given and removes comments and other formatting and saves it into a new file
 void Scanner::preScan(string fileName, string outFileName){
     //cout << fileName << outFileName << endl;
     ifstream inFile(fileName.c_str());

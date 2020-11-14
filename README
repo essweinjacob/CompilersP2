@@ -1,0 +1,1 @@
+if key word is changed to iff because you cant define if function in scanner.cpp because it already exist. Just changed to iff for the sake of sanity.
